@@ -1,21 +1,76 @@
 <script>
+	import Card from '$lib/Components/Card.svelte';
     export let data;
     $:console.log(data)
+    let Models = [
+      {
+        id:1,
+        Title:"Linear Regression",
+        Description : "Predicting linear relationship between dependent variable and independent variable",
+        url : 'https://miro.medium.com/v2/resize:fit:1200/1*Nf2tTTkALYq6RTMQmhjo1A.png',
+        tags: ['Machine Learning', 'Supervised', 'Data Science'],
+        PageLink : 'LinearRegression'
+      },
+      {
+        id:2,
+        Title:'Logistic Regression',
+        Description:'Used for binary classification tasks, such as spam detection or medical diagnosis.',
+        url:'https://rb.gy/v99hf',
+        tags:['Machine Learning', 'Supervised', 'Data Science'],
+        PageLink:'LogisticRegression'
+      },
+      {
+        id:3,
+        Title:'K-Means Clustering',
+        Description:'Groups similar data points into clusters based on their features.',
+        url:'https://rb.gy/1c5bm',
+        tags:['Machine Learning', 'Unsupervised Learning', 'Data Science'] 
+      },
+      {
+        id: 4,
+        Title: "Random Forest",
+        Description: "Random Forest is an ensemble learning method in machine learning that's widely used for both classification and regression tasks. It's known for its effectiveness, versatility.",
+        url: "https://tse2.mm.bing.net/th?id=OIP.1qOkyyUI2eKfnMskLuxNygHaEK&pid=Api&P=0&h=180",
+        tags: ["Machine Learning", "Supervised", "Ensemble Learning"]
+      },
+      {
+        id: 5,
+        Title: "Support Vector Machines (SVM)",
+        Description: "A machine learning algorithm used for classification and regression tasks. SVM finds a hyperplane that best separates data points into different classes.",
+        url: "https://tse3.mm.bing.net/th?id=OIP.aDzW5IzjZdipiB5f3F1v_wHaFT&pid=Api&P=0&h=180",
+        tags: ["Machine Learning", "Supervised", "Classification"]
+      },
+      {
+        id: 6,
+        Title: "Decision Trees",
+        Description: "A supervised learning algorithm used for classification and regression tasks. Decision trees make decisions by splitting data based on feature values.",
+        url: "https://tse2.mm.bing.net/th?id=OIP.FZXRKCMCtRqfkB5Ed6-VwgHaEj&pid=Api&P=0&h=180",
+        tags: ["Machine Learning", "Supervised", "Classification"]
+      }
+    ]
 </script>
-<header>
 
-    <nav class="px-12 py-5 bg-pink-600 text-white flex justify-between">
-        <h1 class="font-bold font-mono">MLPlaygroundHub</h1>
-        <ul class="flex space-x-3 justify-end h-10 align-middle">
-            <li class="mx-2 cursor-pointer"><a href="/">Home</a></li>
-            <li class="mx-2 cursor-pointer">About</li>
-            <li class="mx-2 cursor-pointer">Contact us</li>
-        </ul>
-    </nav>
-    <img src="https://i.pinimg.com/originals/2b/91/91/2b9191c0750915300106a457fddec474.gif" alt="machine img"
-    class="h-40 m-auto">
-</header>
+<div class="container mx-auto grid grid-cols-3 pt-2 p-20 bg-gradient-to-r from-indigo-500 to-pink-500">
+  {#each Models as i (i.id)}
+    <Card
+    url={i.url}
+    Title={i.Title}
+    Description={i.Description}
+    tags={i.tags}
+    PageLink = {i.PageLink}
+    />
+  {/each}
+</div>
 
-  <style>
-    
-  </style>
+<style>
+  .container{
+    width:80%;
+  }
+  nav li{
+    transition: background-color 0.3s ease;
+  }
+  nav li:hover{
+    background-color:rgb(99 102 241);
+    border-radius: 20%;
+  }
+</style>
