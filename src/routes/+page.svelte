@@ -24,6 +24,7 @@
         Title:'K-Means Clustering',
         Description:'Groups similar data points into clusters based on their features.',
         url:'https://rb.gy/1c5bm',
+        PageLink: "Kmeans",
         tags:['Machine Learning', 'Unsupervised Learning', 'Data Science'] 
       },
       {
