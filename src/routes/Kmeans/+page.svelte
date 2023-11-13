@@ -1,8 +1,7 @@
 <script>
     import {page} from "$app/stores";
-
+	import Rplot from '$lib/Images/Rplot.png'
     export let data;
-    $:console.log(data)
     $:Age = data['csv_data']['Age'];
     $:Annual_Income = data['csv_data']['Annual Income (k$)']
     $:Spending_Score = data['csv_data']['Spending Score (1-100)'];
@@ -46,6 +45,10 @@
 
 
 <div class="h-screen w-screen"> <!-- Parent container with full height and width -->
+    <!-- svelte-ignore a11y-missing-attribute -->
     <iframe class="w-full h-full" src="https://wonderful-sopapillas-886153.netlify.app/"></iframe> <!-- Make the iframe full width and height -->
   </div>
   
+<div class="w-100 h-100 border rounded-lg overflow-hidden shadow-lg mx-auto">
+	<img src={Rplot} alt="Linear regression" class="mx-auto"/>
+</div>
