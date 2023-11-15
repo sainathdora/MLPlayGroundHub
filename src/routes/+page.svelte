@@ -39,6 +39,7 @@
         Title: "Support Vector Machines (SVM)",
         Description: "A machine learning algorithm used for classification and regression tasks. SVM finds a hyperplane that best separates data points into different classes.",
         url: "https://tse3.mm.bing.net/th?id=OIP.aDzW5IzjZdipiB5f3F1v_wHaFT&pid=Api&P=0&h=180",
+        PageLink:'SVM',
         tags: ["Machine Learning", "Supervised", "Classification"]
       },
       {
