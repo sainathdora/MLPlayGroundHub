@@ -48,6 +48,7 @@
         Title: "Decision Trees",
         Description: "A supervised learning algorithm used for classification and regression tasks. Decision trees make decisions by splitting data based on feature values.",
         url: "https://tse2.mm.bing.net/th?id=OIP.FZXRKCMCtRqfkB5Ed6-VwgHaEj&pid=Api&P=0&h=180",
+        PageLink:'DecisionTree',
         tags: ["Machine Learning", "Supervised", "Classification"]
       }
     ]

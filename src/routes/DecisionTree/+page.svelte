@@ -1,9 +1,9 @@
 <script>
-    import RandomForest1 from '$lib/Images/RandomForest1.png'
-    import RandomForest2 from '$lib/Images/RandomForest2.png'
+    import DecisionTree1 from "$lib/Images/DecisionTree1.png"
+    import DecisionTree2 from "$lib/Images/DecisionTree2.png"
     export let data;
     let code = `
-    # Random Forest Classification
+    # Decision Tree Classification
 
 # Importing the dataset
 dataset = read.csv('Social_Network_Ads.csv')
@@ -24,16 +24,14 @@ test_set = subset(dataset, split == FALSE)
 training_set[-3] = scale(training_set[-3])
 test_set[-3] = scale(test_set[-3])
 
-# Fitting Random Forest Classification to the Training set
-# install.packages('randomForest')
-library(randomForest)
-set.seed(123)
-classifier = randomForest(x = training_set[-3],
-                          y = training_set$Purchased,
-                          ntree = 500)
+# Fitting Decision Tree Classification to the Training set
+# install.packages('rpart')
+library(rpart)
+classifier = rpart(formula = Purchased ~ .,
+                   data = training_set)
 
 # Predicting the Test set results
-y_pred = predict(classifier, newdata = test_set[-3])
+y_pred = predict(classifier, newdata = test_set[-3], type = 'class')
 
 # Making the Confusion Matrix
 cm = table(test_set[, 3], y_pred)
@@ -45,9 +43,9 @@ X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
 X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
 grid_set = expand.grid(X1, X2)
 colnames(grid_set) = c('Age', 'EstimatedSalary')
-y_grid = predict(classifier, grid_set)
+y_grid = predict(classifier, newdata = grid_set, type = 'class')
 plot(set[, -3],
-     main = 'Random Forest Classification (Training set)',
+     main = 'Decision Tree Classification (Training set)',
      xlab = 'Age', ylab = 'Estimated Salary',
      xlim = range(X1), ylim = range(X2))
 contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
@@ -61,22 +59,22 @@ X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
 X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
 grid_set = expand.grid(X1, X2)
 colnames(grid_set) = c('Age', 'EstimatedSalary')
-y_grid = predict(classifier, grid_set)
-plot(set[, -3], main = 'Random Forest Classification (Test set)',
+y_grid = predict(classifier, newdata = grid_set, type = 'class')
+plot(set[, -3], main = 'Decision Tree Classification (Test set)',
      xlab = 'Age', ylab = 'Estimated Salary',
      xlim = range(X1), ylim = range(X2))
 contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
 points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'dodgerblue', 'salmon'))
 points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'dodgerblue3', 'salmon3'))
 
-# Choosing the number of trees
-plot(classifier)`
+# Plotting the tree
+plot(classifier)
+text(classifier)
+`
 </script>
 <h1 class="text-4xl font-bold text-center mb-2">
-    Random Forest
+    Decision Tree
 </h1>
-
-
 
 <div class="flex items-center justify-center">
 	<div class="w-2/3">
@@ -113,16 +111,15 @@ plot(classifier)`
 
 <div class="grid grid-cols-2 gap-2 p-4">
     <figure class="text-center">
-        <img src={RandomForest1} alt="Logistic regression" />
+        <img src={DecisionTree1} alt="Desicion Tree" />
         <figcaption class="font-extrabold">Fig-1: Training Set</figcaption>
       </figure>
       <figure>
-        <img src={RandomForest2} alt="Logistic regression 2"/>
+        <img src={DecisionTree2} alt="Decision Tree"/>
         <figcaption class="text-center font-extrabold">Fig-2: Test Set</figcaption>
       </figure>
    
 </div>
-
 
 <h2 class="text-3xl font-bold mb-2 text-pink-500 text-center">Source Code<br />(R-code)</h2>
 <section class="mx-auto bg-black rounded-lg p-4 w-auto">
@@ -136,7 +133,6 @@ plot(classifier)`
 </section>
 
 <style>
-    
     section {
         width: 60%;
         height: auto;
