@@ -32,6 +32,7 @@
         Title: "Random Forest",
         Description: "Random Forest is an ensemble learning method in machine learning that's widely used for both classification and regression tasks. It's known for its effectiveness, versatility.",
         url: "https://tse2.mm.bing.net/th?id=OIP.1qOkyyUI2eKfnMskLuxNygHaEK&pid=Api&P=0&h=180",
+        PageLink:'RandomForest',
         tags: ["Machine Learning", "Supervised", "Ensemble Learning"]
       },
       {
