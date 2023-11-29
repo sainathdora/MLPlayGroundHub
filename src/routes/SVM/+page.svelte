@@ -2,7 +2,7 @@
     export let data;
 	import KernalSVM from '$lib/Images/KernalSVM.png'
 	import KernalSVM2 from '$lib/Images/KernalSVM2.png'
-
+    let Age, Salary = 0;
     let code = `
     
 # Importing the dataset
@@ -68,6 +68,28 @@ plot(set[, -3], main = 'Kernel SVM (Test set)',
 contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
 points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'dodgerblue', 'salmon'))
 points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'dodgerblue3', 'salmon3'))`
+
+
+
+let showLabel = {
+		status : false,
+		Label : null
+	}
+
+  async function GetLabel(){
+    const response = await fetch('/api/LogisticRegression',{
+			method:'POST',
+			body:JSON.stringify({
+				Age: Age,
+        Salary:Salary
+			})
+		})
+    const resJson = await response.json();
+    showLabel['status'] = true;
+    showLabel['Label'] = resJson;
+  }
+
+
 </script>
 
 <h1 class="text-4xl font-bold text-center mb-2">
@@ -130,6 +152,55 @@ points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'dodgerblue3', 'salmon3'))`
 	</div>
 </section>
 
+
+<div class="max-w-md mx-auto mt-8">
+	<form class="bg-pink-600 shadow-md rounded px-8 pt-6 pb-8 mb-4" on:submit|preventDefault={GetLabel}>
+	  <div class="mb-4">
+		<label class="block text-white text-sm font-bold mb-2" for="Age">
+		  Age
+		</label>
+		<input
+		  class="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
+		  id="Age"
+		  type="number"
+		  placeholder="Enter Customer Age"
+		  min="10"
+		  bind:value={Age}
+		/>
+	  </div>
+
+    <div class="mb-4">
+      <label class="block text-white text-sm font-bold mb-2" for="EstimatedSalary">
+        EstimatedSalary
+      </label>
+      <input
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
+        id="EstimatedSalary"
+        type="number"
+        placeholder="Enter Customer Age"
+        min="0"
+        bind:value={Salary}
+      />
+      </div>
+
+	  <div class="flex items-center justify-between">
+		<button
+		  class="bg-indigo-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mx-auto"
+		  type="submit"
+		>
+		  Submit
+		</button>
+	  </div>
+	</form>
+  </div>
+
+{#if showLabel['status']}
+  {#if showLabel['Label']['Label']===1}
+    <h2 class="text-3xl font-bold text-center text-green-500 b-2">The person will purchase our Insurance Plan</h2>
+    {:else}
+    <h2 class="text-3xl font-bold text-center text-red-500 mb-2">The person won't Purchase our Insurance Plan</h2>
+  {/if}
+{/if}
 
 <style>
 	  section {
