@@ -7,8 +7,8 @@
             We are Students from <span class="font-bold">Malla Reddy University</span>.<br>
             We have develeoped this project under the guidance of <span class="font-bold">Dr.G.S.Naveen Kumar</span> <br>
 
-            We are dedicated team of 4 members: Sainath, Abhiseik, 
-            Shashank, Nandu<br>
+            We are dedicated team of 4 members: Sainath, Abhishek, 
+            Shashank, Mani Kanta<br>
             Coming together at Malla Reddy University, we have formed a dynamic group within the DS-Alpha section. Our collective goal is to explore the exciting world of data science, tackle complex challenges, and develop innovative solutions. 
             We are constantly learning, experimenting, and pushing the boundaries of what data can achieve.
           </p>
@@ -17,8 +17,8 @@
           <h3 class="text-lg font-semibold mb-2">Contact</h3>
           <p>Email: 2211CS030086@mallareddyuniversity.ac.in</p>
           <p>Email: 2211CS030002@mallareddyuniversity.ac.in</p>
-          <p>Email: 2211CS0300023@mallareddyuniversity.ac.in</p>
-          <p>Email: 2211CS0300075@mallareddyuniversity.ac.in</p>
+          <p>Email: 2211CS0300022@mallareddyuniversity.ac.in</p>
+          <p>Email: 2211CS0300074@mallareddyuniversity.ac.in</p>
           <p>Phone: +91 ###########</p>
         </div>
         

@@ -5,6 +5,59 @@
     $:Age = data['csv_data']['Age'];
     $:Annual_Income = data['csv_data']['Annual Income (k$)']
     $:Spending_Score = data['csv_data']['Spending Score (1-100)'];
+
+
+	let Age2, Spending_Score2;
+    let label = false;
+	let SegmentationUsingAnnualSS = {
+		Annual_income: 30,
+		SS : 30,
+		label : true,
+		GetLabel : function(){
+			console.log('Annual: ', this.Annual_income)
+			if(this.Annual_income<55 && this.SS<50){
+				console.log('C1')
+				return 'Cluster-1'
+			}
+			else if (this.Annual_income > 55 && this.SS<50){
+				console.log('c4')
+				return 'Cluster-4'
+
+			}
+			else if(this.Annual_income<55 && this.SS>50){
+				console.log('C5')
+				 return 'Cluster-5'
+			}
+			else if(this.Annual_income>55 && this.SS>60){
+				console.log('c3')
+				return 'Cluster-3'
+			}
+			else if((this.Annual_income >35 && this.Annual_income<80) &&(this.SS>20 && this.SS<80)){
+				console.log('c2')
+				return 'Cluster-2'
+			}
+			
+		}
+	}
+    function GetLabel(){
+        if(Spending_Score2<33){
+
+            label='Cluster-2'
+            
+        }
+        else if(Age <42 && Spending_Score >= 30 && Spending_Score <= 64){
+            label='Cluster-3'
+        }
+        else if(Age>43 && Spending_Score>33 && Spending_Score<=68){
+            label='Cluster-0'
+        }
+        else if(Spending_Score>68){
+            label='Cluster-1'
+        }
+        Age = Spending_Score = false
+    }
+
+
 </script>
 
 <h1 class="text-4xl font-bold text-center mb-2">Kmeans Clustering</h1>
