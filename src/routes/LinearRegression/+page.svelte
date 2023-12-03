@@ -143,4 +143,12 @@ ggplot() +
 		width: 60%;
 		height: auto;
 	}
+	*{
+		overflow: hidden;
+	}
+	pre {
+  white-space: pre-wrap; /* Preserve line breaks */
+  overflow: auto; /* Add a scrollbar if content overflows */
+  max-width: 100%; /* Ensure the pre tag doesn't exceed its container */
+}
 </style>

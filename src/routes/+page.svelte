@@ -54,8 +54,10 @@
     ]
 </script>
 
-<div class="container mx-auto grid grid-cols-3 pt-2 p-20 bg-gradient-to-r from-indigo-500 to-pink-500">
+<div class="container mx-auto grid grid-cols-1 bg-gradient-to-r from-indigo-500 to-pink-500
+            sm:max-lg:grid sm:max-lg:grid-cols-2 sm:max-lg:gap-1 lg:grid lg:grid-cols-3 lg:gap-2">
   {#each Models as i (i.id)}
+  <div class="Card">
     <Card
     url={i.url}
     Title={i.Title}
@@ -63,6 +65,7 @@
     tags={i.tags}
     PageLink = {i.PageLink}
     />
+  </div>
   {/each}
 </div>
 
@@ -77,4 +80,16 @@
     background-color:rgb(99 102 241);
     border-radius: 20%;
   }
+  @media only screen and (max-width: 640px) {
+  /* Your styles for screens between 0 to 640 pixels go here */
+  .Card{
+   
+    /* width: 17rem; */
+    width: 97%;
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
 </style>

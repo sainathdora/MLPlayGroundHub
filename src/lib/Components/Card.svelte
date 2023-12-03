@@ -9,11 +9,11 @@
 </script>
 
 
-    <div class="max-w-sm rounded overflow-hidden shadow-lg card bg-white m-auto mt-4">
+    <div class="max-w-sm rounded overflow-hidden shadow-lg card bg-white m-auto">
       <section>
         <aside>
             <img class="mt-2 transition-transform
-            duration-300 transform-gpu" src={url} alt="Url">
+            duration-300 transform-gpu p-2" src={url} alt="Url">
         </aside>
         <div class="px-6 py-4 bg-white text-center">
           <div class="font-bold text-xl mb-2">{Title}</div>
@@ -46,5 +46,12 @@
     .card{
       width:100%;
     }
+
+    @media only screen and (min-width: 1024px) {
+      .card{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+}
     
 </style>

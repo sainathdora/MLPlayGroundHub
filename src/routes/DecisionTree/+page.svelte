@@ -100,7 +100,7 @@ let showLabel = {
 </h1>
 
 <div class="flex items-center justify-center">
-	<div class="w-2/3">
+	<div class="w-2/3 tablediv">
 		<table
 			class="min-w-full divide-y divide-gray-200 bg-white shadow-md rounded-lg overflow-hidden"
 		>
@@ -132,7 +132,7 @@ let showLabel = {
 <h2 class="text-3xl font-bold text-center mb-2 text-purple-500">Graphical Representation</h2>
 
 
-<div class="grid grid-cols-2 gap-2 p-4">
+<div class="grid grid-cols-2 gap-2 p-4 img-container">
     <figure class="text-center">
         <img src={DecisionTree1} alt="Desicion Tree" />
         <figcaption class="font-extrabold">Fig-1: Training Set</figcaption>
@@ -211,4 +211,19 @@ let showLabel = {
         width: 60%;
         height: auto;
     }
+    @media only screen and (max-width: 640px) {
+      .tablediv{
+        overflow-x: auto;
+      }
+      .img-container{
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      
+    }
+    pre {
+  white-space: pre-wrap; /* Preserve line breaks */
+  overflow: auto; /* Add a scrollbar if content overflows */
+  max-width: 100%; /* Ensure the pre tag doesn't exceed its container */
+  }
 </style>
