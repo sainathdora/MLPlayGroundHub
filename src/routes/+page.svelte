@@ -91,5 +91,9 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
+  .Card{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
 </style>
